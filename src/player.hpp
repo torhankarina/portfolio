@@ -10,4 +10,6 @@ public:
     int column();
     void move_right();
     void move_down();
+    void move_left();
+    void move_up();
 };
