@@ -3,5 +3,15 @@
 #include "carrot.hpp"
 
 std::string Carrot::symbol() {
-    return "v";
+    if(age == 0) {
+        return "v";
+    } else if (age == 1) {
+        return "V";
+    } else {
+        return "W";
+    }
+}
+
+void Carrot::end_day() {
+    age += 1;
 }

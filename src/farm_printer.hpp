@@ -7,4 +7,5 @@ private:
 public:
     FarmPrinter(Farm *farm);
     std::string pp();
+    std::string legend();
 };

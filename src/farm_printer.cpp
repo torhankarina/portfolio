@@ -15,3 +15,15 @@ std::string FarmPrinter::pp() {
     }
     return output;
 }
+std::string FarmPrinter::legend() {
+    return
+        "Controls:\n"
+        "w - move up\n"
+        "a - move left\n"
+        "s - move down\n"
+        "d - move right\n"
+        "c - plant carrot\n"
+        "h - harvest\n"
+        "e - end day\n"
+        "q - quit game\n\n";
+}
