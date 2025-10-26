@@ -15,3 +15,7 @@ std::string Carrot::symbol() {
 void Carrot::end_day() {
     age += 1;
 }
+
+bool Carrot::is_mature() {
+    return age >= 1;
+}

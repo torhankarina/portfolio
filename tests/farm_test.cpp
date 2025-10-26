@@ -56,3 +56,25 @@ TEST_CASE( "it allows us to plant a carrot" ) {
     farm.plant(0, 1, &carrot);
     REQUIRE( farm.get_symbol(0, 1) == "v" );
 }
+
+TEST_CASE("harvesting a mature plant replaces it with soil") {
+    Player player;
+    Farm farm(1, 1, &player);
+    Carrot carrot;
+    farm.plant(0, 0, &carrot);
+
+    farm.end_day();
+
+    farm.harvest(0, 0);
+    REQUIRE(farm.get_symbol(0, 0) == ".");
+}
+
+TEST_CASE("cannot harvest a seedling") {
+    Player player;
+    Farm farm(1, 1, &player);
+    Carrot carrot;
+    farm.plant(0, 0, &carrot);
+
+    farm.harvest(0, 0);
+    REQUIRE(farm.get_symbol(0, 0) == "v");
+}

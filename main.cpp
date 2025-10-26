@@ -3,6 +3,8 @@
 #include "src/farm.hpp"
 #include "src/farm_printer.hpp"
 #include "src/carrot.hpp"
+#include "src/soil.hpp"
+#include "src/plot.hpp"
 #include "src/ansi_clear.hpp"
 
 int main() {
@@ -16,7 +18,8 @@ int main() {
     ansi_clear();
     std::cout << printer.legend();
     std::cout << printer.pp() << std::endl;
-    std::cin >> player_input;
+    //std::cin >> player_input;
+    std::getline(std::cin, player_input);
 
     if(player_input == "q") {
       game_in_progress = false;
@@ -31,6 +34,8 @@ int main() {
     } else if(player_input == "c") {
       Carrot *carrot = new Carrot();
       farm.plant(player.row(), player.column(), carrot);
+    } else if(player_input == "h") {
+      farm.harvest(player.row(), player.column());
     } else if (player_input == "e") {
       farm.end_day();
     }
