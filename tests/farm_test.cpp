@@ -60,21 +60,49 @@ TEST_CASE( "it allows us to plant a carrot" ) {
 TEST_CASE("harvesting a mature plant replaces it with soil") {
     Player player;
     Farm farm(1, 1, &player);
-    Carrot carrot;
-    farm.plant(0, 0, &carrot);
+    Carrot* carrot = new Carrot();
+    farm.plant(0, 0, carrot);
+
+    player.move_down();
 
     farm.end_day();
-
     farm.harvest(0, 0);
-    REQUIRE(farm.get_symbol(0, 0) == ".");
+
+    REQUIRE(farm.get_symbol(0, 0) == "."); // now visible as soil
 }
 
 TEST_CASE("cannot harvest a seedling") {
     Player player;
     Farm farm(1, 1, &player);
-    Carrot carrot;
-    farm.plant(0, 0, &carrot);
+    Carrot* carrot = new Carrot();
+    farm.plant(0, 0, carrot);
+
+    player.move_down();
 
     farm.harvest(0, 0);
+    REQUIRE(farm.get_symbol(0, 0) == "v");
+}
+
+TEST_CASE("cannot plant on an occupied plot") {
+    Player player;
+    Farm farm(1, 1, &player);
+    Carrot* carrot1 = new Carrot();
+    farm.plant(0, 0, carrot1);
+
+    player.move_down();
+
+    Carrot* carrot2 = new Carrot();
+    farm.plant(0, 0, carrot2);
+    REQUIRE(farm.get_symbol(0, 0) == "v");
+}
+
+TEST_CASE("can plant on soil") {
+    Player player;
+    Farm farm(1, 1, &player);
+    
+    player.move_down();
+
+    Carrot* carrot = new Carrot();
+    farm.plant(0, 0, carrot);
     REQUIRE(farm.get_symbol(0, 0) == "v");
 }
