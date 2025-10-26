@@ -40,4 +40,5 @@ int main() {
       farm.end_day();
     }
   }
+  std::cout << "\nThanks for playing!\n";
 }
