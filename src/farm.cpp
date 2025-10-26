@@ -39,12 +39,17 @@ void Farm::plant(int row, int column, Plot *plot) {
   delete current_plot;
 }
 
+int Farm::day() const {
+  return current_day;
+}
+
 void Farm::end_day() {
   for(int i = 0; i < rows; i++) {
     for(int j = 0; j < columns; j++) {
       plots.at(i).at(j)->end_day();
     }
   }
+  current_day += 1;
 }
 
 void Farm::harvest(int row, int column) {

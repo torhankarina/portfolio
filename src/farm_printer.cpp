@@ -25,5 +25,6 @@ std::string FarmPrinter::legend() {
         "c - plant carrot\n"
         "h - harvest\n"
         "e - end day\n"
-        "q - quit game\n\n";
+        "q - quit game\n\n"
+    "Day: " + std::to_string(farm->day()) + "\n";
 }

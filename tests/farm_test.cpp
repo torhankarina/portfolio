@@ -99,7 +99,7 @@ TEST_CASE("cannot plant on an occupied plot") {
 TEST_CASE("can plant on soil") {
     Player player;
     Farm farm(1, 1, &player);
-    
+
     player.move_down();
 
     Carrot* carrot = new Carrot();
