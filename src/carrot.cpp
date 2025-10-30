@@ -5,10 +5,8 @@
 std::string Carrot::symbol() {
     if(age == 0) {
         return "v";
-    } else if (age == 1) {
+    } else if (age >= 1) {
         return "V";
-    } else {
-        return "W";
     }
 }
 
