@@ -4,7 +4,7 @@
 #include <catch2/generators/catch_generators_range.hpp>
 
 #include "../src/soil.hpp"
-#include "../src/soil.hpp"
+
 TEST_CASE( "it returns a dot as its symbol" ) {
     Soil soil;
     REQUIRE( soil.symbol() == "." );

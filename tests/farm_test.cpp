@@ -1,4 +1,3 @@
-
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/benchmark/catch_benchmark.hpp>
 #include <catch2/benchmark/catch_constructor.hpp>
@@ -54,7 +53,7 @@ TEST_CASE( "it allows us to plant a carrot" ) {
     Farm farm(1, 2, &player);
     Carrot carrot;
     farm.plant(0, 1, &carrot);
-    REQUIRE( farm.get_symbol(0, 1) == "v" );
+    REQUIRE( farm.get_symbol(0, 1) == "~" );
 }
 
 TEST_CASE("harvesting a mature plant replaces it with soil") {
@@ -80,7 +79,7 @@ TEST_CASE("cannot harvest a seedling") {
     player.move_down();
 
     farm.harvest(0, 0);
-    REQUIRE(farm.get_symbol(0, 0) == "v");
+    REQUIRE(farm.get_symbol(0, 0) == "~");
 }
 
 TEST_CASE("cannot plant on an occupied plot") {
@@ -93,7 +92,7 @@ TEST_CASE("cannot plant on an occupied plot") {
 
     Carrot* carrot2 = new Carrot();
     farm.plant(0, 0, carrot2);
-    REQUIRE(farm.get_symbol(0, 0) == "v");
+    REQUIRE(farm.get_symbol(0, 0) == "~");
 }
 
 TEST_CASE("can plant on soil") {
@@ -104,5 +103,5 @@ TEST_CASE("can plant on soil") {
 
     Carrot* carrot = new Carrot();
     farm.plant(0, 0, carrot);
-    REQUIRE(farm.get_symbol(0, 0) == "v");
+    REQUIRE(farm.get_symbol(0, 0) == "~");
 }

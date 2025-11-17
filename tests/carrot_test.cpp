@@ -5,20 +5,13 @@
 
 #include "../src/carrot.hpp"
 
-TEST_CASE( "it returns a v as its when it is a seedling" ) {
+TEST_CASE( "it returns a c as its when it is a seedling" ) {
     Carrot carrot;
-    REQUIRE( carrot.symbol() == "v" );
+    REQUIRE( carrot.symbol() == "~" );
 }
 
-TEST_CASE( "it returns a V when the carrot is half-grown" ) {
+TEST_CASE( "it returns a C when the carrot is grown" ) {
     Carrot carrot;
     carrot.end_day();
-    REQUIRE( carrot.symbol() == "V" );
-}
-
-TEST_CASE( "it returns a W when the carrot is fully grown" ) {
-    Carrot carrot;
-    carrot.end_day();
-    carrot.end_day();
-    REQUIRE( carrot.symbol() == "W" );
+    REQUIRE( carrot.symbol() == "C" );
 }
