@@ -49,8 +49,13 @@ int main() {
     } else if(player_input == "r") {
       BrusselsSprouts* brussels_sprouts = new BrusselsSprouts();
       farm.plant(player.row(), player.column(), brussels_sprouts);
-    //} else if (player_input == "t") {
-      //farm.water(player.row(),player.column());
+    } else if (player_input == "t") {
+      Plot* plot = farm.get_plot(player.row(), player.column());
+      if (auto carrot = dynamic_cast<Carrot*>(plot)) carrot->water();
+      else if (auto lettuce = dynamic_cast<Lettuce*>(plot)) lettuce->water();
+      else if (auto spinach = dynamic_cast<Spinach*>(plot)) spinach->water();
+      else if (auto beet = dynamic_cast<Beet*>(plot)) beet->water();
+      else if (auto brussels = dynamic_cast<BrusselsSprouts*>(plot)) brussels->water();
     } else if(player_input == "h") {
       farm.harvest(player.row(), player.column());
     } else if (player_input == "e") {

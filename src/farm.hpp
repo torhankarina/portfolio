@@ -20,4 +20,7 @@ public:
     int day() const;
     void end_day();
     void harvest(int row, int column);
+    Plot* get_plot(int row, int column) {
+        return plots.at(row).at(column);
+    }
 };
