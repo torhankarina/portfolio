@@ -17,14 +17,19 @@ std::string FarmPrinter::pp() {
 }
 std::string FarmPrinter::legend() {
     return
-        "Controls:\n"
-        "w - move up\n"
-        "a - move left\n"
-        "s - move down\n"
-        "d - move right\n"
-        "c - plant carrot\n"
-        "h - harvest\n"
-        "e - end day\n"
-        "q - quit game\n\n"
+    "Controls:\n"
+    "w - move up\n"
+    "a - move left\n"
+    "s - move down\n"
+    "d - move right\n"
+    "c - plant Carrot\n"
+    "l - plant Lettuce\n"
+    "p - plant Spinach\n"
+    "b - plant Beet\n"
+    "r - plant Brussels Sprouts\n"
+    "t - water plant\n"
+    "h - harvest\n"
+    "e - end day\n"
+    "q - quit game\n\n"
     "Day: " + std::to_string(farm->day()) + "\n";
 }

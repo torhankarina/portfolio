@@ -37,6 +37,18 @@ int main() {
     } else if(player_input == "c") {
       Carrot *carrot = new Carrot();
       farm.plant(player.row(), player.column(), carrot);
+    } else if(player_input == "l") {
+      Lettuce* lettuce = new Lettuce();
+      farm.plant(player.row(), player.column(), lettuce);
+    } else if(player_input == "p") {
+      Spinach* spinach = new Spinach();
+      farm.plant(player.row(), player.column(), spinach);
+    } else if(player_input == "b") {
+      Beet* beet = new Beet();
+      farm.plant(player.row(), player.column(), beet);
+    } else if(player_input == "r") {
+      BrusselsSprouts* brussels_sprouts = new BrusselsSprouts();
+      farm.plant(player.row(), player.column(), brussels_sprouts);
     //} else if (player_input == "t") {
       //farm.water(player.row(),player.column());
     } else if(player_input == "h") {
