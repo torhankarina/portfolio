@@ -2,10 +2,14 @@
 #include "src/player.hpp"
 #include "src/farm.hpp"
 #include "src/farm_printer.hpp"
-#include "src/carrot.hpp"
 #include "src/soil.hpp"
 #include "src/plot.hpp"
 #include "src/ansi_clear.hpp"
+#include "src/carrot.hpp"
+#include "src/lettuce.hpp"
+#include "src/spinach.hpp"
+#include "src/beet.hpp"
+#include "src/brussels_sprouts.hpp"
 
 int main() {
   Player player;
