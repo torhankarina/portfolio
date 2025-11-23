@@ -1,9 +1,9 @@
 #include "lettuce.hpp"
 
 std::string Lettuce::symbol() {
-    if (age == 0) return "~";     // tilled soil
-    else if (age < 2) return "l"; // seedling
-    else return "L";              // adult
+    if (age < 2) return "~"; // tilled soil
+    else if (age >= 2 && age <4) return "l"; // seedling
+    else return "L"; // adult
 }
 
 void Lettuce::end_day() {
@@ -11,6 +11,6 @@ void Lettuce::end_day() {
     else age += 1;
 }
 
-bool Lettuce::is_mature() { return age >= 2; }
+bool Lettuce::is_mature() { return age >= 4; }
 
 void Lettuce::water() { watered = true; }

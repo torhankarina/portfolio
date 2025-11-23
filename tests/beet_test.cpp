@@ -3,9 +3,9 @@
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
 
-#include "../src/carrot.hpp"
+#include "../src/beet.hpp"
 
-TEST_CASE( "it returns a ~ when carrot is a tilled soil" ) {
-    Carrot carrot;
-    REQUIRE( carrot.symbol() == "~" );
+TEST_CASE( "it returns a ~ as its when beet is a tilled soil" ) {
+    Beet beet;
+    REQUIRE( beet.symbol() == "~" );
 }
