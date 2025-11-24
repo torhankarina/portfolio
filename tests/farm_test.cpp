@@ -65,6 +65,7 @@ TEST_CASE("harvesting a mature plant replaces it with soil") {
     player.move_down();
 
     farm.end_day();
+    farm.end_day();
     farm.harvest(0, 0);
 
     REQUIRE(farm.get_symbol(0, 0) == "."); // now visible as soil
