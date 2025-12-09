@@ -25,6 +25,7 @@ public:
     Plot* get_plot(int row, int column) {
         return plots.at(row).at(column);
     }
+    Bunny* get_bunny() { return bunny; }
     void spawn_bunny(); // spawn at top-left corner
     void bunny_day_start(Player* player); // eat crops / check adjacency
     void bunny_end_day(Player* player);   // move bunny

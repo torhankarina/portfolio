@@ -62,6 +62,7 @@ void Farm::harvest(int row, int column) {
 
 void Farm::spawn_bunny() {
   if (!bunny || !bunny->is_on_farm()) {
+    delete bunny; // avoid leak
     bunny = new Bunny(0, 0); // always top-left corner
   }
 }
