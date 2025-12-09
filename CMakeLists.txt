@@ -19,7 +19,7 @@ add_executable(farm_printer_test tests/farm_printer_test.cpp src/farm_printer.cp
 add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/soil.cpp src/player.cpp src/bunny.cpp src/carrot.cpp src/lettuce.cpp src/spinach.cpp src/beet.cpp src/brussels_sprouts.cpp)
 add_executable(soil_test tests/soil_test.cpp src/soil.cpp)
 add_executable(player_test tests/player_test.cpp src/player.cpp)
-add_executable(bunny_test tests/bunny_test.cpp src/bunny.cpp)
+add_executable(bunny_test tests/bunny_test.cpp src/bunny.cpp src/farm.cpp src/farm_printer.cpp src/player.cpp src/soil.cpp src/carrot.cpp src/lettuce.cpp src/spinach.cpp src/beet.cpp src/brussels_sprouts.cpp)
 add_executable(carrot_test tests/carrot_test.cpp src/carrot.cpp)
 add_executable(lettuce_test tests/lettuce_test.cpp src/lettuce.cpp)
 add_executable(spinach_test tests/spinach_test.cpp src/spinach.cpp)

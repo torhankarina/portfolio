@@ -62,8 +62,10 @@ void Farm::harvest(int row, int column) {
 
 void Farm::spawn_bunny() {
   if (!bunny || !bunny->is_on_farm()) {
-    delete bunny; // avoid leak
-    bunny = new Bunny(0, 0); // always top-left corner
+    delete bunny;               // clean up old bunny if it exists
+    int start_row = 0;          // top row
+    int start_col = 1;          // next to player at (0,0)
+    bunny = new Bunny(start_row, start_col);
   }
 }
 
