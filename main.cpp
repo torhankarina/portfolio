@@ -10,6 +10,7 @@
 #include "src/spinach.hpp"
 #include "src/beet.hpp"
 #include "src/brussels_sprouts.hpp"
+#include "src/bunny.hpp"
 
 int main() {
   Player player;
@@ -20,8 +21,12 @@ int main() {
 
   while(game_in_progress) {
     ansi_clear();
+    farm.spawn_bunny();
+    farm.bunny_day_start(&player);
+
     std::cout << printer.legend();
     std::cout << printer.pp() << std::endl;
+
     std::getline(std::cin, player_input);
 
     if(player_input == "q") {
@@ -60,6 +65,7 @@ int main() {
       farm.harvest(player.row(), player.column());
     } else if (player_input == "e") {
       farm.end_day();
+      farm.bunny_end_day(&player); // move bunny at end of day
     }
   }
   std::cout << "\nThanks for playing!\n";

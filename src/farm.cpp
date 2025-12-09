@@ -24,11 +24,10 @@ int Farm::number_of_columns() {
 }
 
 std::string Farm::get_symbol(int row, int column) {
-  if(player->row() == row && player->column() == column) {
-    return "@";
-  } else {
-    return plots.at(row).at(column)->symbol();
-  }
+  if(player->row() == row && player->column() == column) return "@";
+  if (bunny && bunny->is_on_farm() && bunny->get_row() == row && bunny->get_column() == column)
+    return bunny->symbol();
+  return plots.at(row).at(column)->symbol();
 }
 
 void Farm::plant(int row, int column, Plot *plot) {
