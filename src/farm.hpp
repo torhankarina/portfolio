@@ -3,12 +3,14 @@
 #include <vector>
 #include "plot.hpp"
 #include "player.hpp"
+#include "bunny.hpp"
 
 class Farm {
 private:
     int rows;
     int columns;
     Player *player;
+    Bunny* bunny = nullptr; // only 1 bunny at a time
     std::vector<std::vector<Plot *>> plots;
     int current_day = 1;
 public:
@@ -23,4 +25,7 @@ public:
     Plot* get_plot(int row, int column) {
         return plots.at(row).at(column);
     }
+    void spawn_bunny(); // spawn at top-left corner
+    void bunny_day_start(Player* player); // eat crops / check adjacency
+    void bunny_end_day(Player* player);   // move bunny
 };

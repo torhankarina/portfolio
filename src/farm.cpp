@@ -2,6 +2,7 @@
 #include <vector>
 #include "farm.hpp"
 #include "soil.hpp"
+#include "bunny.hpp"
 
 Farm::Farm(int rows, int columns, Player *player) : rows(rows), columns(columns), player(player) {
   for(int i = 0; i < rows; i++) {
@@ -57,5 +58,44 @@ void Farm::harvest(int row, int column) {
   if(plot->is_mature()) {
     delete plot;
     plots.at(row).at(column) = new Soil();
+  }
+}
+
+void Farm::spawn_bunny() {
+  if (!bunny || !bunny->is_on_farm()) {
+    bunny = new Bunny(0, 0); // always top-left corner
+  }
+}
+
+// check if bunny is on vegetable and eat it; check if player is nearby
+void Farm::bunny_day_start(Player* player) {
+  if (!bunny || !bunny->is_on_farm()) return;
+
+  int r = bunny->get_row();
+  int c = bunny->get_column();
+
+  // eat vegetable if present
+  Plot* plot = plots.at(r).at(c);
+  if (!dynamic_cast<Soil*>(plot)) {
+    delete plot;
+    plots.at(r).at(c) = new Soil();
+  }
+
+  // check adjacency to player
+  int pr = player->row();
+  int pc = player->column();
+  if ((abs(pr - r) == 1 && pc == c) || (abs(pc - c) == 1 && pr == r)) {
+    bunny->scare();
+  }
+}
+
+// move bunny at end of day
+void Farm::bunny_end_day(Player* player) {
+  if (!bunny || !bunny->is_on_farm()) return;
+
+  if (bunny->is_scared()) {
+    bunny->run_away(player->row(), player->column(), rows, columns);
+  } else {
+    bunny->move(rows, columns);
   }
 }
